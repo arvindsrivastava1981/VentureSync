@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VentureSync - Real Estate Land Developer Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            venture: {
+              navy: '#1B2A4B',
+              emerald: '#2ECC71',
+              gold: '#F1C40F',
+              rose: '#E74C3C',
+              sky: '#3B82F6',
+              teal: '#14B8A6',
+              dark_navy: '#0d1b2a',
+              light_navy: '#2d4a6e',
+              soft_gold: '#F5D88D',
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
+  <script src="venture_sync_charts.js"></script>
+</head>
+<body class="font-sans font-antialiased bg-venture-dark_navy min-h-screen">
+  <!-- Header -->
+  <header class="bg-venture-navy text-white px-6 py-3 flex items-center justify-between sticky top-0 z-50 shadow-lg border-b border-venture-light_navy">
+    <div class="flex items-center space-x-4">
+      <button id="menuToggle" class="p-2 hover:bg-venture-light_navy rounded-lg transition-colors">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 bg-venture-emerald rounded-lg flex items-center justify-center">
+          <i data-lucide="building-2" class="w-6 h-6 text-white"></i>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold text-white">VentureSync</h1>
+          <p class="text-sm text-venture-soft_gold">Real Estate Land Developer Platform</p>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center space-x-4">
+      <div class="flex items-center space-x-2">
+        <span class="text-sm text-gray-300 font-medium">Welcome, Admin</span>
+        <i data-lucide="user" class="w-4 h-4 text-gray-400"></i>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex">
+    <!-- Sidebar Navigation -->
+    <nav id="sidebar" class="bg-venture-navy text-gray-300 w-64 min-h-screen transition-all duration-300 p-4 hidden">
+      <ul class="space-y-2">
+        <li>
+          <a href="super_admin.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
+            <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+            <span>Super Admin Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="sales_executive.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
+            <i data-lucide="trending-up" class="w-5 h-5"></i>
+            <span>Sales Executive</span>
+          </a>
+        </li>
+        <li>
+          <a href="accounts_manager.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
+            <i data-lucide="receipt" class="w-5 h-5"></i>
+            <span>Accounts Manager</span>
+          </a>
+        </li>
+        <li>
+          <a href="external_broker.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
+            <i data-lucide="handshake" class="w-5 h-5"></i>
+            <span>External Broker</span>
+          </a>
+        </li>
+        <li>
+          <a href="buyer_portal.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
+            <i data-lucide="user" class="w-5 h-5"></i>
+            <span>Buyer Portal</span>
+          </a>
+        </li>
+        <li>
+          <a href="index.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
+            <i data-lucide="corner-up-left" class="w-5 h-5"></i>
+            <span>Back to Menu</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+<main class="flex-1 p-6 overflow-auto">
+      <!-- Welcome Screen -->
+      <section id="welcomeScreen" class="view-section welcome-view">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold text-white mb-6 text-center">Welcome to VentureSync</h2>
+          <div class="bg-venture-navy rounded-xl p-8 border border-venture-light_navy mb-6">
+            <h3 class="text-xl font-semibold text-white mb-6 text-center">Select Your Role to Continue</h3>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+              <a href="super_admin.html" class="role-btn bg-venture-emerald hover:bg-emerald-600 text-white p-6 rounded-lg flex flex-col items-center transition-transform transform hover:scale-105">
+                <i data-lucide="shield" class="w-8 h-8 mb-2"></i>
+                <span class="font-bold text-lg">Super Admin</span>
+                <span class="text-xs text-white/80 mt-1">Full Dashboard Access</span>
+              </a>
+              <a href="sales_executive.html" class="role-btn bg-venture-sky hover:bg-blue-600 text-white p-6 rounded-lg flex flex-col items-center transition-transform transform hover:scale-105">
+                <i data-lucide="trending-up" class="w-8 h-8 mb-2"></i>
+                <span class="font-bold text-lg">Sales Executive</span>
+                <span class="text-xs text-white/80 mt-1">Track Leads & Sales</span>
+              </a>
+              <a href="accounts_manager.html" class="role-btn bg-venture-emerald hover:bg-emerald-600 text-white p-6 rounded-lg flex flex-col items-center transition-transform transform hover:scale-105">
+                <i data-lucide="receipt" class="w-8 h-8 mb-2"></i>
+                <span class="font-bold text-lg">Accounts Manager</span>
+                <span class="text-xs text-white/80 mt-1">Financial Overview</span>
+              </a>
+              <a href="external_broker.html" class="role-btn bg-venture-gold hover:bg-yellow-600 text-white p-6 rounded-lg flex flex-col items-center transition-transform transform hover:scale-105">
+                <i data-lucide="handshake" class="w-8 h-8 mb-2"></i>
+                <span class="font-bold text-lg">External Broker</span>
+                <span class="text-xs text-white/80 mt-1">Partner Portal</span>
+              </a>
+              <a href="buyer_portal.html" class="role-btn bg-venture-rose hover:bg-red-600 text-white p-6 rounded-lg flex flex-col items-center transition-transform transform hover:scale-105">
+                <i data-lucide="user" class="w-8 h-8 mb-2"></i>
+                <span class="font-bold text-lg">Buyer Portal</span>
+                <span class="text-xs text-white/80 mt-1">View & Book Plots</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>

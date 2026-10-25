@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accounts Manager Dashboard - VentureSync</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            venture: {
+              navy: '#1B2A4B',
+              emerald: '#2ECC71',
+              gold: '#F1C40F',
+              rose: '#E74C3C',
+              sky: '#3B82F6',
+              teal: '#14B8A6',
+              dark_navy: '#0d1b2a',
+              light_navy: '#2d4a6e',
+              soft_gold: '#F5D88D',
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
+  <script src="venture_sync_charts.js"></script>
+</head>
+<body class="font-sans font-antialiased bg-venture-dark_navy min-h-screen">
+  <!-- Header -->
+  <header class="bg-venture-navy text-white px-6 py-3 flex items-center justify-between sticky top-0 z-50 shadow-lg border-b border-venture-light_navy">
+    <div class="flex items-center space-x-4">
+      <button id="menuToggle" class="p-2 hover:bg-venture-light_navy rounded-lg transition-colors">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 bg-venture-emerald rounded-lg flex items-center justify-center">
+          <i data-lucide="receipt" class="w-6 h-6 text-white"></i>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold text-white">VentureSync</h1>
+          <p class="text-sm text-venture-soft_gold">Accounts Manager Dashboard</p>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center space-x-4">
+      <div class="flex items-center space-x-2">
+        <span class="text-sm text-gray-300 font-medium">Welcome, Accounts Manager</span>
+        <i data-lucide="user" class="w-4 h-4 text-gray-400"></i>
+      </div>
+      <a href="index.html" class="bg-venture-light_navy text-white px-3 py-2 rounded-lg hover:bg-venture-sky transition-colors text-sm">
+        <i data-lucide="corner-up-left" class="w-4 h-4 mr-1"></i> Back to Menu
+      </a>
+    </div>
+  </header>
+
+  <div class="flex">
+    <!-- Sidebar Navigation -->
+    <nav id="sidebar" class="bg-venture-navy text-gray-300 w-64 min-h-screen transition-all duration-300 p-4 hidden">
+      <ul class="space-y-2">
+        <li>
+          <a href="accounts_manager.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
+            <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="accounts_manager.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
+            <i data-lucide="file-text" class="w-5 h-5"></i>
+            <span>Financials</span>
+          </a>
+        </li>
+        <li>
+          <a href="accounts_manager.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
+            <i data-lucide="receipt" class="w-5 h-5"></i>
+            <span>Payment Ledger</span>
+          </a>
+        </li>
+        <li>
+          <a href="accounts_manager.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
+            <i data-lucide="document" class="w-5 h-5"></i>
+            <span>Documents</span>
+          </a>
+        </li>
+        <li>
+          <a href="accounts_manager.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
+            <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+            <span>Reports</span>
+          </a>
+        </li>
+        <li>
+          <a href="index.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
+            <i data-lucide="corner-up-left" class="w-5 h-5"></i>
+            <span>Back to Menu</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="flex-1 p-6 overflow-auto">
+      <h2 class="text-3xl font-bold text-white mb-6">Accounts Manager Dashboard</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+        <div class="bg-venture-navy rounded-xl p-6 border border-venture-light_navy">
+          <h3 class="text-lg font-semibold text-white mb-4">Financial Overview</h3>
+          <div class="space-y-4">
+            <div>
+              <p class="text-sm text-gray-400">Total Revenue (YTD)</p>
+              <p class="text-2xl font-bold text-venture-emerald">$12.4M</p>
+            </div>
+            <div>
+              <p class="text-sm text-gray-400">Total Expenses</p>
+              <p class="text-2xl font-bold text-venture-rose">$7.8M</p>
+            </div>
+            <div>
+              <p class="text-sm text-gray-400">Net Profit</p>
+              <p class="text-2xl font-bold text-venture-emerald">$4.6M</p>
+            </div>
+            <div>
+              <p class="text-sm text-gray-400">Profit Margin</p>
+              <p class="text-2xl font-bold text-venture-emerald">37%</p>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-2 bg-venture-navy rounded-xl p-6 border border-venture-light_navy">
+          <h3 class="text-lg font-semibold text-white mb-4">Payment Ledger</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-gray-300">
+              <thead>
+                <tr class="border-b border-gray-700">
+                  <th class="pb-3">Venture</th>
+                  <th class="pb-3">Client</th>
+                  <th class="pb-3">Amount</th>
+                  <th class="pb-3">Status</th>
+                  <th class="pb-3">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-800">
+                  <td class="py-3">Riverside Heights</td>
+                  <td class="py-3">John Smith</td>
+                  <td class="text-venture-emerald">$2.4M</td>
+                  <td><span class="px-2 py-1 bg-venture-emerald bg-opacity-20 text-venture-emerald rounded text-xs">Paid</span></td>
+                  <td class="text-gray-400">Jan 15, 2026</td>
+                </tr>
+                <tr class="border-b border-gray-800">
+                  <td class="py-3">Oakwood Residences</td>
+                  <td class="py-3">Jane Doe</td>
+                  <td class="text-venture-rose">$850,000</td>
+                  <td><span class="px-2 py-1 bg-venture-gold bg-opacity-20 text-venture-gold rounded text-xs">Pending</span></td>
+                  <td class="text-gray-400">Feb 10, 2026</td>
+                </tr>
+                <tr class="border-b border-gray-800">
+                  <td class="py-3">Green Valley Estates</td>
+                  <td class="py-3">Robert Brown</td>
+                  <td class="text-venture-emerald">$1.2M</td>
+                  <td><span class="px-2 py-1 bg-venture-emerald bg-opacity-20 text-venture-emerald rounded text-xs">Paid</span></td>
+                  <td class="text-gray-400">Feb 20, 2026</td>
+                </tr>
+                <tr>
+                  <td class="py-3">Sunset Towers</td>
+                  <td class="py-3">Maria Garcia</td>
+                  <td class="text-venture-rose">$650,000</td>
+                  <td><span class="px-2 py-1 bg-venture-rose bg-opacity-20 text-venture-rose rounded text-xs">Overdue</span></td>
+                  <td class="text-gray-400">Feb 28, 2026</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-venture-navy rounded-xl p-6 border border-venture-light_navy">
+          <h4 class="text-lg font-semibold text-white mb-4">Revenue Overview</h4>
+          <canvas id="revenueChart" class="w-full h-48"></canvas>
+        </div>
+        <div class="bg-venture-navy rounded-xl p-6 border border-venture-light_navy">
+          <h4 class="text-lg font-semibold text-white mb-4">Collection Rate</h4>
+          <canvas id="collectionChart" class="w-full h-48"></canvas>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
