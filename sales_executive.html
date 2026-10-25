@@ -1,200 +1,53 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sales Executive Dashboard - VentureSync</title>
+  <title>VentureSync | Sales Map & Layout Inspection</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          },
-          colors: {
-            venture: {
-              navy: '#1B2A4B',
-              emerald: '#2ECC71',
-              gold: '#F1C40F',
-              rose: '#E74C3C',
-              sky: '#3B82F6',
-              teal: '#14B8A6',
-              dark_navy: '#0d1b2a',
-              light_navy: '#2d4a6e',
-              soft_gold: '#F5D88D',
-            },
-          },
-        },
-      },
-    };
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
-  <script src="venture_sync_charts.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="font-sans font-antialiased bg-venture-dark_navy min-h-screen">
-  <!-- Header -->
-  <header class="bg-venture-navy text-white px-6 py-3 flex items-center justify-between sticky top-0 z-50 shadow-lg border-b border-venture-light_navy">
-    <div class="flex items-center space-x-4">
-      <button id="menuToggle" class="p-2 hover:bg-venture-light_navy rounded-lg transition-colors">
-        <i data-lucide="menu" class="w-5 h-5"></i>
-      </button>
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 bg-venture-sky rounded-lg flex items-center justify-center">
-          <i data-lucide="trending-up" class="w-6 h-6 text-white"></i>
-        </div>
+<body class="bg-[#0b132b] text-slate-100 font-sans min-h-screen p-6">
+  <div class="max-w-6xl mx-auto space-y-6">
+    <div class="flex justify-between items-center bg-slate-900 p-4 rounded-2xl border border-slate-800">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="p-2 bg-slate-800 rounded-xl text-slate-300 hover:text-white"><i data-lucide="arrow-left" class="w-4 h-4"></i></a>
         <div>
-          <h1 class="text-xl font-bold text-white">VentureSync</h1>
-          <p class="text-sm text-venture-soft_gold">Sales Executive Dashboard</p>
+          <h1 class="font-bold text-white text-base">Sales Executive: Site Plan Layout Map</h1>
+          <p class="text-[10px] text-slate-400">Shree Narayan Vihar, Orai Jalaun Highway</p>
         </div>
       </div>
-    </div>
-    <div class="flex items-center space-x-4">
-      <div class="flex items-center space-x-2">
-        <span class="text-sm text-gray-300 font-medium">Welcome, Sales Exec</span>
-        <i data-lucide="user" class="w-4 h-4 text-gray-400"></i>
-      </div>
+      <a href="accounts_manager.html" class="text-xs bg-emerald-600 px-4 py-2 rounded-xl text-white font-semibold">Open Accounts Ledger &rarr;</a>
     </div>
 
-    <div class="flex items-center space-x-4">
-      <div class="flex items-center space-x-2">
-        <span class="text-sm text-gray-300 font-medium">Welcome, Sales Exec</span>
-        <i data-lucide="user" class="w-4 h-4 text-gray-400"></i>
+    <!-- Interactive Grid -->
+    <div class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 shadow-xl space-y-4">
+      <div class="flex justify-between items-center text-xs">
+        <span class="text-slate-400 font-medium">Click any plot to hold or view details:</span>
+        <div class="flex gap-3">
+          <span class="flex items-center gap-1"><span class="w-3 h-3 bg-emerald-500 rounded-sm"></span> Available</span>
+          <span class="flex items-center gap-1"><span class="w-3 h-3 bg-amber-500 rounded-sm"></span> Booked</span>
+        </div>
       </div>
-      <a href="index.html" class="bg-venture-light_navy text-white px-3 py-2 rounded-lg hover:bg-venture-sky transition-colors text-sm">
-        <i data-lucide="corner-up-left" class="w-4 h-4 mr-1"></i> Back to Menu
-      </a>
+      <div id="plot-grid" class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-10 gap-3.5"></div>
     </div>
-  </header>
-
-  <div class="flex">
-    <!-- Sidebar Navigation -->
-    <nav id="sidebar" class="bg-venture-navy text-gray-300 w-64 min-h-screen transition-all duration-300 p-4 hidden">
-      <ul class="space-y-2">
-        <li>
-          <a href="sales_executive.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
-            <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="sales_executive.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
-            <i data-lucide="building" class="w-5 h-5"></i>
-            <span>My Ventures</span>
-          </a>
-        </li>
-        <li>
-          <a href="sales_executive.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
-            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
-            <span>Leads</span>
-          </a>
-        </li>
-        <li>
-          <a href="sales_executive.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
-            <i data-lucide="map" class="w-5 h-5"></i>
-            <span>Map</span>
-          </a>
-        </li>
-        <li>
-          <a href="sales_executive.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
-            <i data-lucide="visitors" class="w-5 h-5"></i>
-            <span>Site Visits</span>
-          </a>
-        </li>
-        <li>
-          <a href="index.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
-            <i data-lucide="corner-up-left" class="w-5 h-5"></i>
-            <span>Back to Menu</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    <main class="flex-1 p-6 overflow-auto">
-      <h2 class="text-3xl font-bold text-white mb-6">Sales Executive Dashboard</h2>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-        <div class="bg-venture-navy rounded-xl p-6 border border-venture-light_navy">
-          <h3 class="text-lg font-semibold text-white mb-4">My Performance</h3>
-          <div class="space-y-4">
-            <div>
-              <p class="text-sm text-gray-400">Current Month Target</p>
-              <p class="text-2xl font-bold text-white">$850,000</p>
-            </div>
-            <div>
-              <p class="text-sm text-gray-400">Current Month Revenue</p>
-              <p class="text-2xl font-bold text-venture-emerald">$720,000</p>
-            </div>
-            <div>
-              <p class="text-sm text-gray-400">Progress</p>
-              <p class="text-2xl font-bold text-venture-emerald">85%</p>
-            </div>
-          </div>
-        </div>
-        <div class="lg:col-span-2 bg-venture-navy rounded-xl p-6 border border-venture-light_navy">
-          <h3 class="text-lg font-semibold text-white mb-4">Active Ventures</h3>
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-gray-300">
-              <thead>
-                <tr class="border-b border-gray-700">
-                  <th class="pb-3">Venture</th>
-                  <th class="pb-3">Status</th>
-                  <th class="pb-3">Progress</th>
-                  <th class="pb-3">Revenue</th>
-                  <th class="pb-3">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="border-b border-gray-800">
-                  <td class="py-3">Riverside Heights</td>
-                  <td><span class="px-2 py-1 bg-venture-emerald bg-opacity-20 text-venture-emerald rounded text-xs">Active</span></td>
-                  <td>75%</td>
-                  <td class="text-venture-emerald">$2.4M</td>
-                  <td class="text-right">
-                    <button class="bg-venture-emerald text-white px-3 py-1 rounded-lg text-sm hover:bg-emerald-600">View</button>
-                  </td>
-                </tr>
-                <tr class="border-b border-gray-800">
-                  <td class="py-3">Oakwood Residences</td>
-                  <td><span class="px-2 py-1 bg-venture-gold bg-opacity-20 text-venture-gold rounded text-xs">On Hold</span></td>
-                  <td>45%</td>
-                  <td class="text-venture-gold">$1.1M</td>
-                  <td class="text-right">
-                    <button class="bg-venture-sky text-white px-3 py-1 rounded-lg text-sm hover:bg-sky-600">View</button>
-                  </td>
-                </tr>
-                <tr class="border-b border-gray-800">
-                  <td class="py-3">Green Valley Estates</td>
-                  <td><span class="px-2 py-1 bg-venture-emerald bg-opacity-20 text-venture-emerald rounded text-xs">Active</span></td>
-                  <td>60%</td>
-                  <td class="text-venture-emerald">$1.8M</td>
-                  <td class="text-right">
-                    <button class="bg-venture-emerald text-white px-3 py-1 rounded-lg text-sm hover:bg-emerald-600">View</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div class="bg-venture-navy rounded-xl p-6 border border-venture-light_navy">
-          <h4 class="text-lg font-semibold text-white mb-4">Lead Distribution</h4>
-          <canvas id="plotChart" class="w-full h-48"></canvas>
-        </div>
-        <div class="bg-venture-navy rounded-xl p-6 border border-venture-light_navy">
-          <h4 class="text-lg font-semibold text-white mb-4">Collection Rate</h4>
-          <canvas id="collectionChart" class="w-full h-48"></canvas>
-        </div>
-      </div>
-    </main>
   </div>
   <script>
+    const plots = Array.from({ length: 20 }, (_, i) => ({ id: 101 + i, area: 1200, status: i === 1 ? 'sold' : i === 7 ? 'booked' : 'available' }));
+    
+    function renderGrid() {
+      const grid = document.getElementById('plot-grid');
+      grid.innerHTML = '';
+      plots.forEach(p => {
+        const bg = p.status === 'available' ? 'bg-emerald-950/40 border-emerald-500/40 text-emerald-300' : 'bg-amber-950/40 border-amber-500/40 text-amber-300';
+        grid.innerHTML += `
+          <button onclick="alert('Inspecting Plot #${p.id} (${p.area} sqft) - Status: ${p.status.toUpperCase()}')" class="p-3.5 rounded-xl border text-center transition ${bg}">
+            <span class="block text-sm font-bold text-white">#${p.id}</span>
+            <span class="block text-[10px] opacity-80">${p.area} sqft</span>
+          </button>`;
+      });
+    }
+    renderGrid();
     lucide.createIcons();
   </script>
 </body>

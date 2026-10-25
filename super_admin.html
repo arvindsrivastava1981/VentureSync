@@ -1,185 +1,66 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Super Admin Dashboard - VentureSync</title>
+  <title>VentureSync | Super Admin & Onboarding</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          },
-          colors: {
-            venture: {
-              navy: '#1B2A4B',
-              emerald: '#2ECC71',
-              gold: '#F1C40F',
-              rose: '#E74C3C',
-              sky: '#3B82F6',
-              teal: '#14B8A6',
-              dark_navy: '#0d1b2a',
-              light_navy: '#2d4a6e',
-              soft_gold: '#F5D88D',
-            },
-          },
-        },
-      },
-    };
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
-  <script src="venture_sync_charts.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="font-sans font-antialiased bg-venture-dark_navy min-h-screen">
-  <!-- Header -->
-  <header class="bg-venture-navy text-white px-6 py-3 flex items-center justify-between sticky top-0 z-50 shadow-lg border-b border-venture-light_navy">
-    <div class="flex items-center space-x-4">
-      <button id="menuToggle" class="p-2 hover:bg-venture-light_navy rounded-lg transition-colors">
-        <i data-lucide="menu" class="w-5 h-5"></i>
-      </button>
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 bg-venture-emerald rounded-lg flex items-center justify-center">
-          <i data-lucide="shield" class="w-6 h-6 text-white"></i>
+<body class="bg-[#0b132b] text-slate-100 font-sans min-h-screen p-6">
+  <div class="max-w-5xl mx-auto space-y-6">
+    <div class="flex justify-between items-center bg-slate-900 p-4 rounded-2xl border border-slate-800">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="p-2 bg-slate-800 rounded-xl text-slate-300 hover:text-white"><i data-lucide="arrow-left" class="w-4 h-4"></i></a>
+        <h1 class="font-bold text-white text-base">Super Admin: Firm & Layout Onboarding</h1>
+      </div>
+      <span class="text-xs bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full border border-emerald-500/30">Master Governance</span>
+    </div>
+
+    <!-- Onboarding Form -->
+    <div class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 shadow-xl space-y-6">
+      <form onsubmit="handleOnboard(event)" class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs">
+        <div>
+          <label class="text-slate-400 block mb-1">Firm / Company Name *</label>
+          <input type="text" id="firm-name" placeholder="e.g. Shree Narayan Developer" required class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-white">
         </div>
         <div>
-          <h1 class="text-xl font-bold text-white">VentureSync</h1>
-          <p class="text-sm text-venture-soft_gold">Super Admin Dashboard</p>
+          <label class="text-slate-400 block mb-1">Site / Venture Name *</label>
+          <input type="text" id="site-name" placeholder="e.g. Shree Narayan Vihar" required class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-white">
         </div>
-      </div>
-    </div>
-    <div class="flex items-center space-x-4">
-      <div class="flex items-center space-x-2">
-        <span class="text-sm text-gray-300 font-medium">Welcome, Admin</span>
-        <i data-lucide="user" class="w-4 h-4 text-gray-400"></i>
-      </div>
-      <a href="index.html" class="bg-venture-light_navy text-white px-3 py-2 rounded-lg hover:bg-venture-sky transition-colors text-sm">
-        <i data-lucide="corner-up-left" class="w-4 h-4 mr-1"></i> Back to Menu
-      </a>
-    </div>
-  </header>
-
-  <div class="flex">
-    <!-- Sidebar Navigation -->
-    <nav id="sidebar" class="bg-venture-navy text-gray-300 w-64 min-h-screen transition-all duration-300 p-4 hidden">
-      <ul class="space-y-2">
-        <li>
-          <a href="super_admin.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
-            <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="ventures.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
-            <i data-lucide="building" class="w-5 h-5"></i>
-            <span>Ventures</span>
-          </a>
-        </li>
-        <li>
-          <a href="sales-executive.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
-            <i data-lucide="trending-up" class="w-5 h-5"></i>
-            <span>Sales</span>
-          </a>
-        </li>
-        <li>
-          <a href="accounts-manager.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
-            <i data-lucide="receipt" class="w-5 h-5"></i>
-            <span>Accounts</span>
-          </a>
-        </li>
-        <li>
-          <a href="external-broker.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
-            <i data-lucide="handshake" class="w-5 h-5"></i>
-            <span>External Brokers</span>
-          </a>
-        </li>
-        <li>
-          <a href="buyer-portal.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
-            <i data-lucide="user" class="w-5 h-5"></i>
-            <span>Buyers</span>
-          </a>
-        </li>
-        <li>
-          <a href="index.html" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-venture-light_navy transition-colors">
-            <i data-lucide="corner-up-left" class="w-5 h-5"></i>
-            <span>Back to Menu</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <main class="flex-1 p-6 overflow-auto">
-      <h2 class="text-3xl font-bold text-white mb-6">Executive Dashboard</h2>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-        <div class="bg-venture-navy rounded-xl p-6 border border-venture-light_navy">
-          <h3 class="text-lg font-semibold text-white mb-4">Quick Stats</h3>
-          <div class="space-y-4">
-            <div>
-              <p class="text-sm text-gray-400">Total Ventures</p>
-              <p class="text-2xl font-bold text-white">12</p>
-            </div>
-            <div>
-              <p class="text-sm text-gray-400">Active Projects</p>
-              <p class="text-2xl font-bold text-venture-emerald">8</p>
-            </div>
-            <div>
-              <p class="text-sm text-gray-400">On Hold</p>
-              <p class="text-2xl font-bold text-venture-gold">3</p>
-            </div>
-            <div>
-              <p class="text-sm text-gray-400">Completed</p>
-              <p class="text-2xl font-bold text-venture-sky">1</p>
-            </div>
+        <div>
+          <label class="text-slate-400 block mb-1">Site Location & Highway *</label>
+          <input type="text" id="site-loc" placeholder="e.g. Orai Jalaun State Highway, UP" required class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-white">
+        </div>
+        <div>
+          <label class="text-slate-400 block mb-1">UP-RERA Registration ID *</label>
+          <input type="text" id="site-rera" placeholder="e.g. UP-RERA-JAL-2024-98421" required class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-white">
+        </div>
+        <div class="md:col-span-2 space-y-2">
+          <label class="text-slate-400 block">Development USPs</label>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <label class="flex items-center gap-2 bg-slate-900 p-3 rounded-xl border border-slate-700"><input type="checkbox" name="usp" value="30 Feet Road" checked> 30 Feet Road</label>
+            <label class="flex items-center gap-2 bg-slate-900 p-3 rounded-xl border border-slate-700"><input type="checkbox" name="usp" value="Central Park" checked> Central Park</label>
+            <label class="flex items-center gap-2 bg-slate-900 p-3 rounded-xl border border-slate-700"><input type="checkbox" name="usp" value="Temple Complex" checked> Temple Complex</label>
+            <label class="flex items-center gap-2 bg-slate-900 p-3 rounded-xl border border-slate-700"><input type="checkbox" name="usp" value="Underground Sewer" checked> Underground Sewer</label>
           </div>
         </div>
-        <div class="lg:col-span-2 bg-venture-navy rounded-xl p-6 border border-venture-light_navy">
-          <h3 class="text-lg font-semibold text-white mb-4">Recent Ventures</h3>
-          <div class="space-y-3">
-            <div class="border-l-2 border-venture-emerald pl-3">
-              <p class="text-white font-medium">Riverside Heights - Active</p>
-              <p class="text-sm text-gray-400">15 days remaining</p>
-            </div>
-            <div class="border-l-2 border-venture-sky pl-3">
-              <p class="text-white font-medium">Oakwood Residences - On Hold</p>
-              <p class="text-sm text-gray-400">Pending approval</p>
-            </div>
-            <div class="border-l-2 border-venture-gold pl-3">
-              <p class="text-white font-medium">Green Valley Estates</p>
-              <p class="text-sm text-gray-400">Completed 2 months ago</p>
-            </div>
-          </div>
+        <div class="md:col-span-2">
+          <label class="text-slate-400 block mb-1">Upload Site Layout PDF / CAD Plan</label>
+          <input type="file" accept=".pdf,image/*" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-2.5 text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-emerald-600 file:text-white">
         </div>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div class="bg-venture-navy rounded-xl p-6 border border-venture-light_navy">
-          <h4 class="text-lg font-semibold text-white mb-4">Ventures by Status</h4>
-          <canvas id="statusChart" class="w-full h-48"></canvas>
+        <div class="md:col-span-2 flex justify-end pt-4">
+          <button type="submit" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3 rounded-xl shadow">Onboard Firm & Publish Site Layout</button>
         </div>
-        <div class="bg-venture-navy rounded-xl p-6 border border-venture-light_navy">
-          <h4 class="text-lg font-semibold text-white mb-4">Revenue Overview</h4>
-          <canvas id="revenueChart" class="w-full h-48"></canvas>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
-        <div class="bg-venture-navy rounded-xl p-6 border border-venture-light_navy">
-          <h4 class="text-lg font-semibold text-white mb-4">Plot Distribution</h4>
-          <canvas id="plotChart" class="w-full h-48"></canvas>
-        </div>
-        <div class="bg-venture-navy rounded-xl p-6 border border-venture-light_navy">
-          <h4 class="text-lg font-semibold text-white mb-4">Collection Rate</h4>
-          <canvas id="collectionChart" class="w-full h-48"></canvas>
-        </div>
-      </div>
-    </main>
+      </form>
+    </div>
   </div>
   <script>
+    function handleOnboard(e) {
+      e.preventDefault();
+      alert('Firm and site layout successfully onboarded into VentureSync database!');
+      window.location.href = 'firm_manager.html';
+    }
     lucide.createIcons();
   </script>
 </body>

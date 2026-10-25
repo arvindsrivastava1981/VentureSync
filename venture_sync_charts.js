@@ -14,8 +14,37 @@ document.addEventListener('DOMContentLoaded', function() {
     options: {
       responsive: true,
       plugins: {
-        legend: { position: 'bottom' },
-        title: { display: true, text: 'Ventures by Status' }
+        legend: {
+          position: 'bottom',
+          labels: {
+            generateLabels: function(chart) {
+              const data = chart.data;
+              const ds = data.datasets[0];
+              return data.labels.map((label, i) => ({
+                label: label,
+                backgroundColor: ds.backgroundColor[i],
+                hidden: false,
+                tooltipTitle: label,
+                tooltipBody: [
+                  `${label}: ${ds.data[i]} ${chart.data.labels[i] === 'Active' ? 'Active' : chart.data.labels[i] === 'Pending' ? 'Pending' : 'Closed'}`,
+                  `Count: ${ds.data[i]}`
+                ]
+              }));
+            }
+          }
+        },
+        title: { display: true, text: 'Ventures by Status\nTotal: 34 ventures' },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              const label = context.label || '';
+              const value = context.parsed;
+              const total = context.dataset.data.reduce((a, b) => a + b, 0);
+              const percentage = ((value / total) * 100).toFixed(1);
+              return `${label}: ${value} (${percentage}%)`;
+            }
+          }
+        }
       }
     }
   });
@@ -36,10 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
       responsive: true,
       plugins: {
         legend: { display: false },
-        title: { display: true, text: 'Plot Distribution' }
-      },
-      scales: {
-        y: { beginAtZero: true }
+        title: { display: true, text: 'Plot Distribution\nTotal: 284 plots sold across 4 quarters' }
       }
     }
   });
@@ -63,12 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
       responsive: true,
       plugins: {
         legend: { position: 'bottom' },
-        title: { display: true, text: 'Revenue Overview' }
-      },
-      scales: {
-        y: {
-          title: { display: true, text: 'Revenue ($)' }
-        }
+        title: { display: true, text: 'Revenue Overview\nTotal: ₹20.0K avg monthly revenue' }
       }
     }
   });
@@ -88,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
       responsive: true,
       plugins: {
         legend: { position: 'bottom' },
-        title: { display: true, text: 'Collection Rate' }
+        title: { display: true, text: 'Collection Rate\n72% collected of ₹90K target' }
       }
     }
   });
