@@ -7,49 +7,46 @@ echo VentureSync Enterprise - Full Stack Startup
 echo ===========================================
 echo.
 
-echo 1/5 - Cleaning up existing processes...
+echo 1/4 - Cleaning up existing processes...
 taskkill /F /IM node.exe 2>nul >nul
 echo Done.
 
-echo 2/5 - Checking port availability...
-echo Port 3000 check complete - proceeding...
-
-echo 3/5 - Starting Backend (NestJS) Server...
-cd backend
-if exist .env (
-    echo Using existing .env configuration
-) else (
-    echo Creating .env file...
-    echo DATABASE_URL=postgresql://neondb_owner:npg_N4iD0zOCbfKo@ep-rough-mouse-b5bgq0in-pooler.c-7.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require > .env
-    echo JWT_SECRET=venturesync-secret-key >> .env
-    echo NODE_ENV=development >> .env
-)
-start /B node dist/main.exe
-echo Backend starting in background...
-
-echo 4/5 - Starting Frontend (Next.js) Server...
-cd ../frontend
+echo 2/4 - Starting Auth API Server (port 3001)...
+cd auth-server
 if not exist node_modules (
-    echo Installing dependencies...
+    echo Installing auth server dependencies...
     npm install --silent 2>&1 | find /i "error" >nul
 )
-start /B npx next dev --port 3000
-echo Frontend starting in background...
+start "VentureSync Auth API" cmd /c "npm start"
+echo Auth API starting on http://localhost:3001
+cd ..
 
-echo 5/5 - Initialization Complete
+echo 3/4 - Starting Frontend (Next.js) Server (port 3000)...
+cd frontend
+if not exist node_modules (
+    echo Installing frontend dependencies...
+    npm install --silent 2>&1 | find /i "error" >nul
+)
+start "VentureSync Frontend" cmd /c "npm run dev"
+echo Frontend starting on http://localhost:3000
+cd ..
+
+echo 4/4 - Initialization Complete
 echo.
+echo ===========================================
 echo VentureSync Enterprise is now running!
+echo ===========================================
 echo.
-echo "Backend API:  http://localhost:3000"
 echo "Frontend UI:  http://localhost:3000"
+echo "Auth API:     http://localhost:3001"
 echo.
 echo "Default Login:"
 echo "  Username: admin"
 echo "  Password: Test@123"
 echo.
-echo Press Ctrl+C to stop both servers
+echo "Register new users at: http://localhost:3000/register"
+echo.
+echo Close the opened windows to stop the servers.
 echo.
 
-:MAIN_LOOP
-timeout /t 5 /nobreak >nul
-goto MAIN_LOOP
+pause

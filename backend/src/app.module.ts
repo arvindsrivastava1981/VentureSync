@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppDataSource } from './database.data-source';
 import { AuthModule } from './modules/auth/auth.module';
 import { FirmsModule } from './modules/firms/firms.module';
-import { Users } from './modules/auth/user.entity';
+import { User } from './modules/auth/user.entity';
 
 @Module({
   imports: [
@@ -21,7 +21,7 @@ import { Users } from './modules/auth/user.entity';
           username: process.env.DB_USERNAME || 'postgres',
           password: process.env.DB_PASSWORD || 'password',
           database: process.env.DB_NAME || 'venturesync',
-          entities: [],
+          entities: [User],
           synchronize: process.env.NODE_ENV !== 'production',
           logging: true,
         };
