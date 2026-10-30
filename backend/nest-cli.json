@@ -1,0 +1,7 @@
+{
+  "root": ".",
+  "sourceRoot": "src",
+  "prefix": "venturesync",
+  "shell": "bash",
+  "orbit": "true"
+}
