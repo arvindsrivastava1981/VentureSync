@@ -31,3 +31,80 @@ body {
 .rose-bg {
   background-color: #ef4444;
 }
+
+/* Utility classes used by components */
+.text-gold {
+  color: #f59e0b;
+}
+
+.text-gold-400 {
+  color: #fbbf24;
+}
+
+.text-emerald-400 {
+  color: #34d399;
+}
+
+.text-sky-400 {
+  color: #38bdf8;
+}
+
+.text-teal-400 {
+  color: #2dd4bf;
+}
+
+.text-rose-400 {
+  color: #fb7185;
+}
+
+.bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.border-white\/10 {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.border-white\/20 {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.text-white\/60 {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.text-white\/70 {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.text-white\/40 {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.text-white\/90 {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.text-white\/50 {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.bg-navy\/50 {
+  background-color: rgba(11, 19, 43, 0.5);
+}
+
+.bg-navy\/80 {
+  background-color: rgba(11, 19, 43, 0.8);
+}
+
+.bg-navy\/90 {
+  background-color: rgba(11, 19, 43, 0.9);
+}
+
+.bg-emerald-500\/20 {
+  background-color: rgba(16, 185, 129, 0.2);
+}
