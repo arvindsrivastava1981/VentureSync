@@ -23,8 +23,8 @@ export default function RoleLayout({ children }: { children: ReactNode }) {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen navy-bg flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gold"></div>
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-2 border-slate-600 border-t-blue-500"></div>
       </div>
     );
   }
@@ -39,7 +39,7 @@ export default function RoleLayout({ children }: { children: ReactNode }) {
   }
 
   return (
-    <div className="min-h-screen navy-bg text-white">
+    <div className="min-h-screen bg-slate-900 text-white">
       <TopNav />
 
       <div className="md:flex md:h-screen overflow-hidden">

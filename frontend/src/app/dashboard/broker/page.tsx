@@ -1,4 +1,4 @@
-import { Card } from '@/components/ui';
+﻿import { Card } from '@/components/ui';
 import { Users, Building, DollarSign, Shield, Calendar, FileText } from 'lucide-react';
 
 export const metadata = {
@@ -8,15 +8,15 @@ export const metadata = {
 const statCards = [
   { title: 'Active Partners', value: '24', change: '+5', icon: Users, color: 'text-emerald-400' },
   { title: 'Total Bookings', value: '128', change: '+12', icon: Building, color: 'text-sky-400' },
-  { title: 'Total Revenue', value: '$2.3M', change: '+18%', icon: DollarSign, color: 'text-gold-400' },
+  { title: 'Total Revenue', value: '₹2.3M', change: '+18%', icon: DollarSign, color: 'text-gold-400' },
   { title: 'Success Rate', value: '95%', change: '+2%', icon: Shield, color: 'text-teal-400' },
 ];
 
 const recentBookings = [
-  { id: 'BR001', plot: 'Plot 101', location: 'Austin, TX', client: 'John Doe', amount: '$2.4M', status: 'Confirmed' },
-  { id: 'BR002', plot: 'Plot 105', location: 'Dallas, TX', client: 'Jane Smith', amount: '$1.8M', status: 'Pending' },
-  { id: 'BR003', plot: 'Plot 112', location: 'Houston, TX', client: 'Robert Johnson', amount: '$3.2M', status: 'Confirmed' },
-  { id: 'BR004', plot: 'Plot 118', location: 'San Antonio, TX', client: 'Emily Davis', amount: '$1.5M', status: 'Pending' },
+  { id: 'BR001', plot: 'Plot 101', location: 'Austin, TX', client: 'John Doe', amount: '₹2.4M', status: 'Confirmed' },
+  { id: 'BR002', plot: 'Plot 105', location: 'Dallas, TX', client: 'Jane Smith', amount: '₹1.8M', status: 'Pending' },
+  { id: 'BR003', plot: 'Plot 112', location: 'Houston, TX', client: 'Robert Johnson', amount: '₹3.2M', status: 'Confirmed' },
+  { id: 'BR004', plot: 'Plot 118', location: 'San Antonio, TX', client: 'Emily Davis', amount: '₹1.5M', status: 'Pending' },
 ];
 
 export default function ExternalBrokerDashboard() {

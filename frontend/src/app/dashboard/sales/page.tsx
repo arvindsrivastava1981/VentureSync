@@ -1,4 +1,4 @@
-import { Card } from '@/components/ui';
+﻿import { Card } from '@/components/ui';
 import { Users, DollarSign, TrendingUp, Clock, Shield, MapPin } from 'lucide-react';
 
 export const metadata = {
@@ -7,16 +7,16 @@ export const metadata = {
 
 const statCards = [
   { title: 'Active Leads', value: '480', change: '+24%', icon: Users, color: 'text-sky-400' },
-  { title: 'Pipeline Value', value: '$9.4M', change: '+12%', icon: DollarSign, color: 'text-gold-400' },
+  { title: 'Pipeline Value', value: '₹9.4M', change: '+12%', icon: DollarSign, color: 'text-gold-400' },
   { title: 'Deals Closed', value: '20', change: '+6', icon: Shield, color: 'text-emerald-400' },
   { title: 'Conversion Rate', value: '34%', change: '+5%', icon: TrendingUp, color: 'text-teal-400' },
 ];
 
 const leads = [
-  { id: 'L001', name: 'Rahul Sharma', plot: 'Plot 101', value: '$2.4M', status: 'New', source: 'Website' },
-  { id: 'L002', name: 'Priya Singh', plot: 'Plot 105', value: '$1.8M', status: 'Contacted', source: 'Referral' },
-  { id: 'L003', name: 'Vikram Patel', plot: 'Plot 112', value: '$3.2M', status: 'Qualified', source: 'Walk-in' },
-  { id: 'L004', name: 'Anita Roy', plot: 'Plot 118', value: '$1.5M', status: 'Proposal', source: 'Event' },
+  { id: 'L001', name: 'Rahul Sharma', plot: 'Plot 101', value: '₹2.4M', status: 'New', source: 'Website' },
+  { id: 'L002', name: 'Priya Singh', plot: 'Plot 105', value: '₹1.8M', status: 'Contacted', source: 'Referral' },
+  { id: 'L003', name: 'Vikram Patel', plot: 'Plot 112', value: '₹3.2M', status: 'Qualified', source: 'Walk-in' },
+  { id: 'L004', name: 'Anita Roy', plot: 'Plot 118', value: '₹1.5M', status: 'Proposal', source: 'Event' },
 ];
 
 export default function SalesDashboard() {

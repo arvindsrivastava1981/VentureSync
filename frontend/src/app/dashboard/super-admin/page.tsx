@@ -1,4 +1,4 @@
-import { Card } from '@/components/ui';
+﻿import { Card } from '@/components/ui';
 import { Building, Users, DollarSign, PieChart } from 'lucide-react';
 
 export const metadata = {
@@ -8,15 +8,15 @@ export const metadata = {
 const statCards = [
   { title: 'Total Properties', value: '1,250', change: '+12%', icon: Building, color: 'text-emerald-400' },
   { title: 'Active Users', value: '480', change: '+24%', icon: Users, color: 'text-sky-400' },
-  { title: 'Total Revenue', value: '$4.6M', change: '+37%', icon: DollarSign, color: 'text-gold-400' },
+  { title: 'Total Revenue', value: '₹4.6M', change: '+37%', icon: DollarSign, color: 'text-gold-400' },
   { title: 'Collection Rate', value: '89%', change: '+5%', icon: PieChart, color: 'text-teal-400' },
 ];
 
 const recentActivity = [
-  { id: 'TX123', client: 'Riverside Heights', amount: '$2.4M', status: 'Paid', date: '2024-01-15' },
-  { id: 'TX456', client: 'Oakwood Residences', amount: '$850K', status: 'Pending', date: '2024-01-20' },
-  { id: 'TX789', client: 'Green Valley Estates', amount: '$1.2M', status: 'Paid', date: '2024-01-25' },
-  { id: 'TX101', client: 'Sunset Towers', amount: '$650K', status: 'Overdue', date: '2024-01-10' },
+  { id: 'TX123', client: 'Riverside Heights', amount: '₹2.4M', status: 'Paid', date: '2024-01-15' },
+  { id: 'TX456', client: 'Oakwood Residences', amount: '₹850K', status: 'Pending', date: '2024-01-20' },
+  { id: 'TX789', client: 'Green Valley Estates', amount: '₹1.2M', status: 'Paid', date: '2024-01-25' },
+  { id: 'TX101', client: 'Sunset Towers', amount: '₹650K', status: 'Overdue', date: '2024-01-10' },
 ];
 
 export default function SuperAdminDashboard() {

@@ -1,4 +1,4 @@
-import { Card } from '@/components/ui';
+﻿import { Card } from '@/components/ui';
 import { DollarSign, TrendingUp, FileText, Clock, Building, Shield } from 'lucide-react';
 
 export const metadata = {
@@ -6,17 +6,17 @@ export const metadata = {
 };
 
 const statCards = [
-  { title: 'Total Revenue', value: '$4.6M', change: '+37%', icon: DollarSign, color: 'text-gold-400' },
-  { title: 'Net Profit', value: '$1.7M', change: '+12%', icon: TrendingUp, color: 'text-emerald-400' },
-  { title: 'Outstanding', value: '$850K', change: '-5%', icon: Clock, color: 'text-rose-400' },
+  { title: 'Total Revenue', value: '₹4.6M', change: '+37%', icon: DollarSign, color: 'text-gold-400' },
+  { title: 'Net Profit', value: '₹1.7M', change: '+12%', icon: TrendingUp, color: 'text-emerald-400' },
+  { title: 'Outstanding', value: '₹850K', change: '-5%', icon: Clock, color: 'text-rose-400' },
   { title: 'Profit Margin', value: '37%', change: '+5%', icon: FileText, color: 'text-sky-400' },
 ];
 
 const paymentLedger = [
-  { id: 'PL001', venture: 'Riverside Heights', client: 'ABC Constructions', amount: '$2.4M', status: 'Paid', date: '2024-01-15' },
-  { id: 'PL002', venture: 'Oakwood Residences', client: 'XYZ Developers', amount: '$850K', status: 'Pending', date: '2024-01-20' },
-  { id: 'PL003', venture: 'Green Valley Estates', client: 'PQR Investments', amount: '$1.2M', status: 'Paid', date: '2024-01-25' },
-  { id: 'PL004', venture: 'Sunset Towers', client: 'LMN Builders', amount: '$650K', status: 'Overdue', date: '2024-01-10' },
+  { id: 'PL001', venture: 'Riverside Heights', client: 'ABC Constructions', amount: '₹2.4M', status: 'Paid', date: '2024-01-15' },
+  { id: 'PL002', venture: 'Oakwood Residences', client: 'XYZ Developers', amount: '₹850K', status: 'Pending', date: '2024-01-20' },
+  { id: 'PL003', venture: 'Green Valley Estates', client: 'PQR Investments', amount: '₹1.2M', status: 'Paid', date: '2024-01-25' },
+  { id: 'PL004', venture: 'Sunset Towers', client: 'LMN Builders', amount: '₹650K', status: 'Overdue', date: '2024-01-10' },
 ];
 
 export default function AccountsDashboard() {

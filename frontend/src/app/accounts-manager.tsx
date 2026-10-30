@@ -1,4 +1,4 @@
-import { Card, Grid, Button } from '@/components/ui';
+﻿import { Card, Grid, Button } from '@/components/ui';
 import { TrendingUp, Building, Folder, Shield, Calendar, Zap, DollarSign, Clock, FileText } from 'lucide-react';
 
 export const metadata = {
@@ -8,24 +8,24 @@ export const metadata = {
 
 export default function AccountsManager() {
   const financialSummary = [
-    { title: 'Total Revenue', value: '$4.6M', icon: DollarSign, color: 'gold' },
-    { title: 'Net Profit', value: '$1.7M', icon: TrendingUp, color: 'emerald' },
+    { title: 'Total Revenue', value: '₹4.6M', icon: DollarSign, color: 'gold' },
+    { title: 'Net Profit', value: '₹1.7M', icon: TrendingUp, color: 'emerald' },
     { title: 'Profit Margin', value: '37%', icon: FileText, color: 'sky' },
-    { title: 'Outstanding', value: '$850K', icon: Clock, color: 'rose' },
+    { title: 'Outstanding', value: '₹850K', icon: Clock, color: 'rose' },
   ];
 
   const paymentLedger = [
-    { id: 'PL001', venture: 'Riverside Heights', client: 'ABC Constructions', amount: '$2.4M', status: 'Paid', date: '2024-01-15' },
-    { id: 'PL002', venture: 'Oakwood Residences', client: 'XYZ Developers', amount: '$850K', status: 'Pending', date: '2024-01-20' },
-    { id: 'PL003', venture: 'Green Valley Estates', client: 'PQR Investments', amount: '$1.2M', status: 'Paid', date: '2024-01-25' },
-    { id: 'PL004', venture: 'Sunset Towers', client: 'LMN Builders', amount: '$650K', status: 'Overdue', date: '2024-01-10' },
+    { id: 'PL001', venture: 'Riverside Heights', client: 'ABC Constructions', amount: '₹2.4M', status: 'Paid', date: '2024-01-15' },
+    { id: 'PL002', venture: 'Oakwood Residences', client: 'XYZ Developers', amount: '₹850K', status: 'Pending', date: '2024-01-20' },
+    { id: 'PL003', venture: 'Green Valley Estates', client: 'PQR Investments', amount: '₹1.2M', status: 'Paid', date: '2024-01-25' },
+    { id: 'PL004', venture: 'Sunset Towers', client: 'LMN Builders', amount: '₹650K', status: 'Overdue', date: '2024-01-10' },
   ];
 
   const milestoneStages = [
-    { stage: 'Token Deposit', percentage: 0, status: 'pending', amount: '$0' },
-    { stage: 'Agreement 20%', percentage: 20, status: 'pending', amount: '$480K' },
-    { stage: 'Construction 60%', percentage: 60, status: 'pending', amount: '$2.9M' },
-    { stage: 'Final Registry', percentage: 20, status: 'pending', amount: '$960K' },
+    { stage: 'Token Deposit', percentage: 0, status: 'pending', amount: '₹0' },
+    { stage: 'Agreement 20%', percentage: 20, status: 'pending', amount: '₹480K' },
+    { stage: 'Construction 60%', percentage: 60, status: 'pending', amount: '₹2.9M' },
+    { stage: 'Final Registry', percentage: 20, status: 'pending', amount: '₹960K' },
   ];
 
   return (

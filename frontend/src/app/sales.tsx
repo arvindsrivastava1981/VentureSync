@@ -1,4 +1,4 @@
-import { Card, Grid, Button } from '@/components/ui';
+﻿import { Card, Grid, Button } from '@/components/ui';
 import { Calendar, BarChart3, TrendingUp, Users, MapPin, Shield, Clock } from 'lucide-react';
 
 export const metadata = {
@@ -8,19 +8,19 @@ export const metadata = {
 
 export default function SalesExecutive() {
   const leads = [
-    { id: 'L001', name: 'Rahul Sharma', plot: 'Plot 101', value: '$2.4M', status: 'New', source: 'Website' },
-    { id: 'L002', name: 'Priya Singh', plot: 'Plot 105', value: '$1.8M', status: 'Contacted', source: 'Referral' },
-    { id: 'L003', name: 'Vikram Patel', plot: 'Plot 112', value: '$3.2M', status: 'Qualified', source: 'Walk-in' },
-    { id: 'L004', name: 'Anita Roy', plot: 'Plot 118', value: '$1.5M', status: 'Proposal', source: 'Event' },
+    { id: 'L001', name: 'Rahul Sharma', plot: 'Plot 101', value: '₹2.4M', status: 'New', source: 'Website' },
+    { id: 'L002', name: 'Priya Singh', plot: 'Plot 105', value: '₹1.8M', status: 'Contacted', source: 'Referral' },
+    { id: 'L003', name: 'Vikram Patel', plot: 'Plot 112', value: '₹3.2M', status: 'Qualified', source: 'Walk-in' },
+    { id: 'L004', name: 'Anita Roy', plot: 'Plot 118', value: '₹1.5M', status: 'Proposal', source: 'Event' },
   ];
 
   const performance = [
-    { month: 'Jan', deals: 12, revenue: '$15.2M' },
-    { month: 'Feb', deals: 15, revenue: '$18.5M' },
-    { month: 'Mar', deals: 10, revenue: '$12.8M' },
-    { month: 'Apr', deals: 18, revenue: '$22.1M' },
-    { month: 'May', deals: 14, revenue: '$17.3M' },
-    { month: 'Jun', deals: 20, revenue: '$25.6M' },
+    { month: 'Jan', deals: 12, revenue: '₹15.2M' },
+    { month: 'Feb', deals: 15, revenue: '₹18.5M' },
+    { month: 'Mar', deals: 10, revenue: '₹12.8M' },
+    { month: 'Apr', deals: 18, revenue: '₹22.1M' },
+    { month: 'May', deals: 14, revenue: '₹17.3M' },
+    { month: 'Jun', deals: 20, revenue: '₹25.6M' },
   ];
 
   return (
@@ -92,7 +92,7 @@ export default function SalesExecutive() {
           </Card>
           <Card>
             <h3 className="text-xl font-bold mb-2">Pipeline Value</h3>
-            <p className="text-white/40">$9.4M total</p>
+            <p className="text-white/40">₹9.4M total</p>
           </Card>
         </div>
       </div>
