@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+yarn-lock.yaml
+
+# Production build
+dist/
+/.webpack/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Misc
+/.DS_Store
+/pnpm-debug.log
+/yarn-debug.log
+/yrr.log
+
+# Local tools
+.local/

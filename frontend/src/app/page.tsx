@@ -1,14 +1,10 @@
-import { metadata } from '@/app/layout';
+"use client";
+
 import { useState } from 'react';
 import { Button } from '@/components/button';
 import { Card } from '@/components/card';
 import { Grid } from '@/components/grid';
 import { ArrowRight, Users, Building, Layout, Wallet, Shield } from 'lucide-react';
-
-export const metadata = {
-  title: 'VentureSync - Welcome',
-  description: 'Role selection screen for the real estate land developer platform',
-};
 
 export default function HomePage() {
   const [selectedRole, setSelectedRole] = useState<'super-admin' | 'sales' | 'accounts' | 'broker' | 'buyer' | null>(null);
