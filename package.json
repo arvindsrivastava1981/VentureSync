@@ -1,0 +1,22 @@
+{
+  "name": "venturesync",
+  "version": "1.0.0",
+  "description": "VentureSync - Real Estate Land Developer Platform",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler publish",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@cloudflare/d1": "^2.0.0",
+    "@cloudflare/queues": "^2.0.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "vitest": "^1.6.0",
+    "wrangler": "^3.55.0"
+  }
+}

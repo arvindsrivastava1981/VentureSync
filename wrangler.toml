@@ -1,0 +1,14 @@
+name = "venturesync"
+main = "./backend/index.js"
+compatibility_date = "2024-06-05"
+compatibility_flags = ["nodejs_compat"]
+
+[d1_databases]
+ venturesync_db = { binding = "DB", database_name = "venturesync_db", preview_features = ["d1"] }
+
+[build]
+  # For Cloudflare Pages, output directory
+  config = "dist"
+
+[env.production]
+  # Production settings
