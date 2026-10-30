@@ -12,6 +12,7 @@ export default function HomePage() {
     if (isLoading) return;
     if (isAuthenticated && user) {
       const role = (user.role || 'buyer') as string;
+      const normalizedRole = role === 'admin' ? 'super-admin' : role;
       const rolePaths: Record<string, string> = {
         'super-admin': '/dashboard/super-admin',
         sales: '/dashboard/sales',
@@ -19,7 +20,7 @@ export default function HomePage() {
         broker: '/dashboard/broker',
         buyer: '/dashboard/buyer',
       };
-      router.replace(rolePaths[role] || '/dashboard/buyer');
+      router.replace(rolePaths[normalizedRole] || '/dashboard/buyer');
     } else if (!isAuthenticated) {
       router.replace('/login');
     }

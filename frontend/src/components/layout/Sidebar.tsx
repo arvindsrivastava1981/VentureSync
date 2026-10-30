@@ -125,7 +125,7 @@ function BarChartIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export default function Sidebar() {
   const { user, logout } = useAuth();
-  const role = (user?.role as Role) || 'buyer';
+  const role = ((user?.role === 'admin' ? 'super-admin' : user?.role) as Role) || 'buyer';
 
   const items = NAV_ITEMS.filter((item) => item.roles.includes(role));
 

@@ -11,6 +11,7 @@ app.use((req, res, next) => {
   res.set('Expires', '0');
   next();
 });
+app.use(express.json());
 
 const JWT_SECRET = 'venturesync-secret-key';
 const users = new Map();

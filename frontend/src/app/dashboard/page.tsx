@@ -13,6 +13,7 @@ export default function DashboardRedirect() {
     const role = (user.role || 'buyer') as string;
     const rolePaths: Record<string, string> = {
       'super-admin': '/dashboard/super-admin',
+      'admin': '/dashboard/super-admin',
       sales: '/dashboard/sales',
       accounts: '/dashboard/accounts',
       broker: '/dashboard/broker',

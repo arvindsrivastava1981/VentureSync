@@ -5,7 +5,7 @@ export const Card: FC<{
   children: React.ReactNode;
 }> = ({ className, children }) => {
   return (
-    <div className={`rounded-lg border border-white/20 bg-navy/80 p-6 transition-colors hover:bg-navy/90 ${className}`}>
+    <div className={`rounded-xl border border-slate-700/50 bg-slate-800/50 backdrop-blur-sm p-6 transition-all duration-200 hover:border-slate-600/50 hover:shadow-lg hover:shadow-black/10 ${className}`}>
       {children}
     </div>
   );
