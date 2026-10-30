@@ -4,17 +4,22 @@ import { ReactNode, useState, useEffect } from 'react';
 import TopNav from './TopNav';
 import Sidebar from './Sidebar';
 import { useAuth } from '@/hooks/useAuth';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
+
+const PUBLIC_ROUTES = ['/login', '/register'];
 
 export default function RoleLayout({ children }: { children: ReactNode }) {
-  const { isLoading, isAuthenticated, user } = useAuth();
+  const { isLoading, isAuthenticated } = useAuth();
   const router = useRouter();
+  const pathname = usePathname();
+
+  const isPublicRoute = PUBLIC_ROUTES.includes(pathname);
 
   useEffect(() => {
-    if (!isLoading && !isAuthenticated) {
+    if (!isLoading && !isAuthenticated && !isPublicRoute) {
       router.replace('/login');
     }
-  }, [isLoading, isAuthenticated, router]);
+  }, [isLoading, isAuthenticated, isPublicRoute, router, pathname]);
 
   if (isLoading) {
     return (
@@ -24,8 +29,13 @@ export default function RoleLayout({ children }: { children: ReactNode }) {
     );
   }
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated && !isPublicRoute) {
     return null;
+  }
+
+  // Public routes (login/register) render children without layout shell
+  if (isPublicRoute) {
+    return <>{children}</>;
   }
 
   return (

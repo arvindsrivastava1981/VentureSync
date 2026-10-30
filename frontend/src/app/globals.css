@@ -108,3 +108,20 @@ body {
 .bg-emerald-500\/20 {
   background-color: rgba(16, 185, 129, 0.2);
 }
+
+/* Button utility classes */
+.bg-gold {
+  background-color: #f59e0b;
+}
+
+.text-navy-bg {
+  color: #0b132b;
+}
+
+.bg-emerald {
+  background-color: #10b981;
+}
+
+.bg-rose {
+  background-color: #ef4444;
+}
