@@ -1,4 +1,3 @@
-import { metadata } from '@/app/layout';
 import { Card, Grid, Button } from '@/components/ui';
 import { Calendar, BarChart3, TrendingUp, Users, MapPin, Shield, Clock } from 'lucide-react';
 

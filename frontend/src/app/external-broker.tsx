@@ -1,6 +1,5 @@
-import { metadata } from '@/app/layout';
 import { Card, Grid, Button } from '@/components/ui';
-import { Building, Users, Link, Shield, Map, Clock, ShieldCheck, ShieldX } from 'lucide-react';
+import { Building, Users, Link, Shield, Map, Clock, ShieldCheck, ShieldX, DollarSign, Calendar, FileText } from 'lucide-react';
 
 export const metadata = {
   title: 'VentureSync - External Broker',
@@ -23,10 +22,10 @@ export default function ExternalBroker() {
   ];
 
   const brokerTools = [
-    { title: 'Partner Portal', href: '#', icon: Shield, description: 'Manage partner accounts and settings' },
-    { title: 'Booking Management', href: '#', icon: Calendar, description: 'View and process booking requests' },
-    { title: 'Reporting', href: '#', icon: Layout, description: 'Generate financial and sales reports' },
-    { title: 'Compliance', href: '#', icon: ShieldX, description: 'Ensure RERA and regulatory compliance' },
+    { title: 'Partner Portal', href: '#', icon: Shield, color: 'emerald', description: 'Manage partner accounts and settings' },
+    { title: 'Booking Management', href: '#', icon: Calendar, color: 'sky', description: 'View and process booking requests' },
+    { title: 'Reporting', href: '#', icon: FileText, color: 'gold', description: 'Generate financial and sales reports' },
+    { title: 'Compliance', href: '#', icon: ShieldX, color: 'rose', description: 'Ensure RERA and regulatory compliance' },
   ];
 
   return (
@@ -42,7 +41,7 @@ export default function ExternalBroker() {
           {partnerStats.map((stat) => (
             <Card key={stat.title} className="p-4 text-center">
               <div className="w-12 h-12 rounded-md mx-auto mb-4 flex items-center justify-center" style={{ color: stat.color }}>
-                {stat.icon}
+                <stat.icon />
               </div>
               <p className="text-2xl font-bold {stat.color}-bg">{stat.value}</p>
               <p className="text-white/60 mt-1 small">{stat.title}</p>
@@ -84,7 +83,7 @@ export default function ExternalBroker() {
           {brokerTools.map((tool) => (
             <Card key={tool.title} className="p-6 hover:bg-navy/90 transition-colors">
               <div className="flex items-center gap-3 mb-3">
-                <icon className="w-6 h-6 {tool.color}-bg/20 rounded-md flex items-center justify-center" />
+                <tool.icon className={`w-6 h-6 ${tool.color}-bg/20 rounded-md flex items-center justify-center`} />
                 <div>
                   <h3 className="font-medium">{tool.title}</h3>
                   <p className="text-white/60 text-sm">{tool.description}</p>

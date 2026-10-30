@@ -15,7 +15,7 @@ export default function HomePage() {
     { key: 'accounts', icon: Building, title: 'Accounts Manager', description: 'Financial overview and management', color: 'sky' },
     { key: 'broker', icon: Shield, title: 'External Broker', description: 'Partner portal for broker operations', color: 'rose' },
     { key: 'buyer', icon: Layout, title: 'Buyer Portal', description: 'View and book property plots', color: 'teal' },
-  ];
+  ] as const;
 
   if (selectedRole) {
     return <NavigateToRole role={selectedRole} />;
@@ -37,11 +37,11 @@ export default function HomePage() {
                 className={`group relative rounded-lg border border-white/20 hover:bg-white/10 transition-colors ${role.color}-bg`}
               >
                 <div className="p-6 flex flex-col items-center gap-3">
-                  <icon className="w-8 h-8 {role.color}-bg/20 rounded-md flex items-center justify-center" />
+                  <role.icon className={`w-8 h-8 ${role.color}-bg/20 rounded-md flex items-center justify-center`} />
                   <h3 className="font-medium">{role.title}</h3>
                   <p className="text-white/60 line-clamp-2">{role.description}</p>
                 </div>
-                <ArrowRight className="w-4 h-4 ml-auto text-{color}-500 group-hover:text-{color}-300 transition-colors" />
+                <ArrowRight className={`w-4 h-4 ml-auto text-${role.color}-500 group-hover:text-${role.color}-300 transition-colors`} />
               </Button>
             ))}
           </Grid>

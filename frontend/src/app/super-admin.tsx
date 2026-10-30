@@ -1,6 +1,5 @@
-import { metadata } from '@/app/layout';
 import { Card, Grid, Button } from '@/components/ui';
-import { Dashboard, Users, Building, FileText, Shield, Map, Clock, PieChart, DollarSign } from 'lucide-react';
+import { Home, Users, Building, FileText, Shield, Map, Clock, PieChart, DollarSign } from 'lucide-react';
 
 export const metadata = {
   title: 'VentureSync - Super Admin',

@@ -32,7 +32,7 @@ export default function RootLayout({
               <span className="hidden md:block">Welcome, Super Admin</span>
               <User className="w-6 h-6" />
               <div>
-                <MenuIcon className="w-5 h-5 hover:text-white cursor-pointer" onClick={() => {}} />
+                <MenuIcon className="w-5 h-5 hover:text-white cursor-pointer" />
                 <XIcon className="w-5 h-5 hidden" />
               </div>
             </div>

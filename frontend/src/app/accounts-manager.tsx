@@ -1,6 +1,5 @@
-import { metadata } from '@/app/layout';
 import { Card, Grid, Button } from '@/components/ui';
-import { TrendingUp, Building, Folder, Shield, Calendar, Zap, DollarSign, Layout } from 'lucide-react';
+import { TrendingUp, Building, Folder, Shield, Calendar, Zap, DollarSign, Clock, FileText } from 'lucide-react';
 
 export const metadata = {
   title: 'VentureSync - Accounts Manager',
@@ -11,7 +10,7 @@ export default function AccountsManager() {
   const financialSummary = [
     { title: 'Total Revenue', value: '$4.6M', icon: DollarSign, color: 'gold' },
     { title: 'Net Profit', value: '$1.7M', icon: TrendingUp, color: 'emerald' },
-    { title: 'Profit Margin', value: '37%', icon: Layout, color: 'sky' },
+    { title: 'Profit Margin', value: '37%', icon: FileText, color: 'sky' },
     { title: 'Outstanding', value: '$850K', icon: Clock, color: 'rose' },
   ];
 
@@ -47,7 +46,7 @@ export default function AccountsManager() {
                   <p className="text-2xl font-bold {summary.color}-bg">{summary.value}</p>
                 </div>
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ color: summary.color }}>
-                  {summary.icon}
+                  <summary.icon />
                 </div>
               </div>
             </Card>
